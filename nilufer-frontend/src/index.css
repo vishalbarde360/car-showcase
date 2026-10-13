@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* ---------- Tailwind theme: Nilufer palette, font and animations ---------- */
+@theme {
+  --color-paper: #d9c9a8;
+  --color-sand: #e6d7b8;
+  --color-sand-light: #efe4c9;
+  --color-gold: #c9a45c;
+  --color-gold-deep: #a47c34;
+  --color-amber-deep: #5a2410;
+  --color-ink: #3a2a18;
+
+  --font-luxe: 'Cormorant Garamond', Georgia, serif;
+
+  --animate-rise: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-draw: draw 2.4s ease-in-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-drift: drift 14s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-rev: marquee-rev 46s linear infinite;
+  --animate-cue: cue 2.2s ease-in-out infinite;
+  --animate-pop: pop 0.6s cubic-bezier(0.3, 1.6, 0.4, 1) both;
+  --animate-ping-slow: ping-slow 2.4s ease-out infinite;
+  --animate-shimmer: shimmer 3.5s ease-in-out infinite;
+  --animate-bump: bump 0.5s cubic-bezier(0.3, 1.8, 0.4, 1) both;
+  --animate-burst: burst 0.6s ease-out both;
+  --animate-toast: toast 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-glow: glow 3s ease-in-out infinite;
+  --animate-sway: sway 5s ease-in-out infinite;
+  --animate-shake: shake 0.45s ease-in-out both;
+  --animate-sway-soft: sway-soft 9s ease-in-out infinite;
+  --animate-fall: fall 9s linear infinite;
+
+  @keyframes rise {
+    from { transform: translateY(110%); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes draw {
+    from { stroke-dashoffset: 1; }
+    to   { stroke-dashoffset: 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50%      { transform: translateY(-16px) rotate(3deg); }
+  }
+  @keyframes drift {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+    15%  { opacity: 0.7; }
+    85%  { opacity: 0.7; }
+    100% { transform: translate3d(40px, -220px, 0) rotate(180deg); opacity: 0; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes marquee-rev {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  @keyframes cue {
+    0%   { transform: translateY(0); opacity: 0; }
+    30%  { opacity: 1; }
+    100% { transform: translateY(26px); opacity: 0; }
+  }
+  @keyframes pop {
+    from { transform: scale(0.4); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  @keyframes ping-slow {
+    0%   { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  @keyframes shimmer {
+    0%   { transform: translateX(-120%) skewX(-20deg); }
+    60%, 100% { transform: translateX(260%) skewX(-20deg); }
+  }
+  @keyframes bump {
+    0%   { transform: scale(0.4); }
+    100% { transform: scale(1); }
+  }
+  @keyframes burst {
+    from { transform: scale(0.4); opacity: 0.9; }
+    to   { transform: scale(2.4); opacity: 0; }
+  }
+  @keyframes toast {
+    from { transform: translateY(26px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-7px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(3px); }
+  }
+  @keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50%      { transform: rotate(5deg); }
+  }
+  @keyframes sway-soft {
+    0%, 100% { transform: rotate(-1.2deg); }
+    50%      { transform: rotate(1.2deg); }
+  }
+  @keyframes fall {
+    0%   { transform: translate3d(0, -10px, 0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.9; }
+    90%  { opacity: 0.8; }
+    100% { transform: translate3d(-70px, 420px, 0) rotate(320deg); opacity: 0; }
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50%      { opacity: 0.7; transform: scale(1.08); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:root {
+  --paper: #d9c9a8;      /* page backdrop */
+  --sand: #e6d7b8;       /* hero card */
+  --sand-light: #efe4c9;
+  --gold: #c9a45c;       /* big wordmark + accents */
+  --gold-deep: #a47c34;
+  --amber: #5a2410;      /* bottle liquid */
+  --ink: #3a2a18;        /* text */
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
